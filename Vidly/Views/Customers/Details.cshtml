@@ -7,3 +7,6 @@
   
   <h3>Member Name:@Model.Name</h3>
   <h3>Membership Discount Rare: @Model.MembershipType.DiscountRate%</h3>
+    @if(@Model.BirthDay != null)
+  {<h3>Birthday:@Model.BirthDay.ToString("dd/MM/yyyy")</h3>
+   }
