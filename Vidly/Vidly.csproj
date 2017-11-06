@@ -214,6 +214,14 @@
     <Compile Include="Migrations\201711061249358_birthdaynull.Designer.cs">
       <DependentUpon>201711061249358_birthdaynull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711061305335_moviestable.cs" />
+    <Compile Include="Migrations\201711061305335_moviestable.Designer.cs">
+      <DependentUpon>201711061305335_moviestable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711061307286_moviesgenre.cs" />
+    <Compile Include="Migrations\201711061307286_moviesgenre.Designer.cs">
+      <DependentUpon>201711061307286_moviesgenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -330,6 +338,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711061249358_birthdaynull.resx">
       <DependentUpon>201711061249358_birthdaynull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061305335_moviestable.resx">
+      <DependentUpon>201711061305335_moviestable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061307286_moviesgenre.resx">
+      <DependentUpon>201711061307286_moviesgenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
