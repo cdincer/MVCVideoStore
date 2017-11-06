@@ -1,10 +1,11 @@
-﻿ using System.Collections.Generic;
-  using System.Linq;
-  using System.Web.Mvc;
-  using Vidly.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using Vidly.Models;
 using System.Data.Entity;
-  
-  namespace Vidly.Controllers
+using Vidly.ViewModels;
+
+namespace Vidly.Controllers
   {
     public class CustomersController : Controller
     {
@@ -19,12 +20,24 @@ using System.Data.Entity;
 
         public ActionResult New()
         {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
 
-            return View();
+            };
+            return View(viewModel);
          
         }
 
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
 
+            return RedirectToAction("Index","Customers");
+        }
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
