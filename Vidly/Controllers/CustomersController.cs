@@ -17,6 +17,14 @@ using System.Data.Entity;
         }
 
 
+        public ActionResult New()
+        {
+
+            return View();
+         
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
