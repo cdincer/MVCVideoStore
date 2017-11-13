@@ -26,8 +26,26 @@ namespace Vidly.Controllers
   
               return View(movies);    
           }
-  
-         
+
+        public ViewResult AddNewMovie()
+        {
+
+
+            return View();
+        }
+
+
+
+
+        [HttpPost]
+        public ActionResult AddNewMovie(Movie ReceivedMovie)
+        {
+            _context.Movies.Add(ReceivedMovie);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index","Movies");
+        }
   
 
     }
