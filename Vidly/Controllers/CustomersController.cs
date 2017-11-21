@@ -34,8 +34,15 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            //Buraya IDnin sifirlanmasi icin. yeni bir variable eklenecek onun sayesinde. 
+            //ID hatasinin tamir edilmesi denenecek.
+
             if (!ModelState.IsValid)
             {
+                var errors = ModelState.Select(x => x.Value.Errors)
+                        .Where(y => y.Count > 0)
+                        .ToList();
+
                 var viewModel = new CustomerFormViewModel
                 {
                     Customer = customer,
