@@ -16,6 +16,17 @@
     @Html.LabelFor(m => m.Genre)
     @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
 </div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ReleaseDate)
+    @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.StockAmount)
+    @Html.TextBoxFor(m => m.StockAmount, new { @class = "form-control" })
+</div>
+
 <button type="submit" class="btn btn-primary">Save</button>
 
 }@* End Of Form.*@

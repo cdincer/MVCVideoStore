@@ -15,5 +15,10 @@ namespace Vidly.Models
 
         [DisplayName("Number in Stock")]
         public int StockAmount { get; set; }
+
+        [DisplayName("Release Date")]
+        public int ReleaseDate { get; set; }
+
+
     }
 }

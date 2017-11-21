@@ -1,4 +1,4 @@
-﻿ @model IEnumerable<Vidly.Models.Movie>
+﻿ @model Vidly.Models.Movie
   
   @{
       ViewBag.Title = "Movies";
@@ -6,26 +6,8 @@
       }
   
   <h2>Movies</h2>
-  <table class="table table-bordered table-hover">
-     
-    <thead>
-         
-        <tr>
-             
-            <th>Movie</th>
-             
-        </tr>
-         
-    </thead>
-     
-    <tbody>
-                 @foreach (var movie in Model)
-                     {
-                         < tr >
-                             < td > @movie.Name </ td >
-                         </ tr >
-                     }
-         
-    </tbody>
-     
-</table>
+
+<h3>@Html.LabelFor(m=>m.Name) : @Model.Name</h3>
+<h3>@Html.LabelFor(m => m.Genre) : @Model.Genre</h3>
+<h3>@Html.LabelFor(m => m.ReleaseDate) : @Model.ReleaseDate</h3>
+<h3>@Html.LabelFor(m => m.StockAmount) : @Model.StockAmount</h3>

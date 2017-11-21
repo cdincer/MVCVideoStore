@@ -46,7 +46,23 @@ namespace Vidly.Controllers
 
             return RedirectToAction("Index","Movies");
         }
-  
+
+
+
+
+        public ViewResult Details(Movie ReceivedMovie)
+        {
+            var foundmovie = _context.Movies.SingleOrDefault(c => c.Id == ReceivedMovie.Id);
+
+        
+
+        
+
+
+
+            return View(foundmovie);
+        }
+
 
     }
 
