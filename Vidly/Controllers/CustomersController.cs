@@ -24,6 +24,8 @@ namespace Vidly.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+
+                //22-Validation summary.
                 Customer = new Customer(), 
                 MembershipTypes = membershipTypes
 
@@ -35,9 +37,7 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
-            //Buraya IDnin sifirlanmasi icin. yeni bir variable eklenecek onun sayesinde. 
-            //ID hatasinin tamir edilmesi denenecek.
-            //https://stackoverflow.com/questions/2142990/the-id-field-is-required-validation-message-on-create-id-not-set-to-required will be looked at looking into how id can be managed getting from new stuff. This method helps you edit stuff too.
+         
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.Select(x => x.Value.Errors)
