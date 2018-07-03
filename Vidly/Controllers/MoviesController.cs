@@ -57,6 +57,41 @@ namespace Vidly.Controllers
         }
 
 
+
+
+        [HttpPost]
+        public ActionResult Save(Movie MovieEdited)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Select(x => x.Value.Errors)
+                        .Where(y => y.Count > 0)
+                        .ToList();
+
+             
+
+                return View("Index","Movies");
+            }
+
+
+            if (MovieEdited.Id == 0)
+                _context.Movies.Add(MovieEdited);
+            else
+            {
+                var DBMovie = _context.Movies.Single(c => c.Id == MovieEdited.Id);
+
+                DBMovie.Name = MovieEdited.Name;
+                DBMovie.Genre = MovieEdited.Genre;
+                DBMovie.StockAmount = MovieEdited.StockAmount;
+                DBMovie.ReleaseDate = MovieEdited.ReleaseDate;
+
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
+
     }
 
 
