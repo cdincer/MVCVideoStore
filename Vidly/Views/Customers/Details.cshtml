@@ -1,56 +1,15 @@
-﻿ @model Vidly.Models.Movie
+﻿ @model Vidly.Models.Customer
   
-@{
-    ViewBag.Title = "New";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+  @{
+      ViewBag.Title = Model.Name;
+      Layout = "~/Views/Shared/_Layout.cshtml";
+      }
+  
+  <h3>Member Name:@Model.Name</h3>
+  <h3>Membership Discount Rare: @Model.MembershipType.DiscountRate%</h3>
+    @if(@Model.BirthDay != null)
 
-
-@if (Model.Id != 0)
-{
-    string Title = "Edit Movies";
-    <h2>@Html.Label(Title) </h2>
-}
-else
-{
-    <h2>New Movie</h2>
-}
-
-
-@using (Html.BeginForm("Save", "Movies"))
-{
-    @Html.ValidationSummary()
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Name)
-    </div>
-    <div class="form-group">
-        <label>
-            @Html.LabelFor(m => m.StockAmount)
-            @Html.TextBoxFor(m => m.StockAmount, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.StockAmount)
-        </label>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ReleaseDate)
-        @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.ReleaseDate)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Genre)
-     @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Genre)
-    </div>
-    @Html.HiddenFor(m => m.Id)
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Save</button>
-}
-@Html.ActionLink("Go Back To Customers Index ", "Index", "Customers", new { @class = "btn btn-primary" })
-
-@section scripts
-{
-
-    @Scripts.Render("~/bundles/jqueryval");
-}
+    {
+        
+        <h3>Birthday:@Model.BirthDay.Value.ToShortDateString()</h3>
+   }
