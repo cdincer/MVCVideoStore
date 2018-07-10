@@ -17,7 +17,7 @@ namespace Vidly.Models
         public int StockAmount { get; set; }
 
         [DisplayName("Release Date")]
-        public int ReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
 
     }

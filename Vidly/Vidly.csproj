@@ -234,9 +234,13 @@
     <Compile Include="Migrations\201806261838147_Seed26Jun2018.Designer.cs">
       <DependentUpon>201806261838147_Seed26Jun2018.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807101807078_MovieDateTime.cs" />
-    <Compile Include="Migrations\201807101807078_MovieDateTime.Designer.cs">
-      <DependentUpon>201807101807078_MovieDateTime.cs</DependentUpon>
+    <Compile Include="Migrations\201807101818445_ReleaseDateAdjustment.cs" />
+    <Compile Include="Migrations\201807101818445_ReleaseDateAdjustment.Designer.cs">
+      <DependentUpon>201807101818445_ReleaseDateAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807101819269_ReleaseDateTypeAdd.cs" />
+    <Compile Include="Migrations\201807101819269_ReleaseDateTypeAdd.Designer.cs">
+      <DependentUpon>201807101819269_ReleaseDateTypeAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -373,8 +377,11 @@
     <EmbeddedResource Include="Migrations\201806261838147_Seed26Jun2018.resx">
       <DependentUpon>201806261838147_Seed26Jun2018.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807101807078_MovieDateTime.resx">
-      <DependentUpon>201807101807078_MovieDateTime.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807101818445_ReleaseDateAdjustment.resx">
+      <DependentUpon>201807101818445_ReleaseDateAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807101819269_ReleaseDateTypeAdd.resx">
+      <DependentUpon>201807101819269_ReleaseDateTypeAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
