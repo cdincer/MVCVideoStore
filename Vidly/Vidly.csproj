@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201806261838147_Seed26Jun2018.Designer.cs">
       <DependentUpon>201806261838147_Seed26Jun2018.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807101807078_MovieDateTime.cs" />
+    <Compile Include="Migrations\201807101807078_MovieDateTime.Designer.cs">
+      <DependentUpon>201807101807078_MovieDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -368,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806261838147_Seed26Jun2018.resx">
       <DependentUpon>201806261838147_Seed26Jun2018.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807101807078_MovieDateTime.resx">
+      <DependentUpon>201807101807078_MovieDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
