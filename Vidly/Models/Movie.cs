@@ -20,6 +20,7 @@ namespace Vidly.Models
         public string Genre { get; set; }
 
         [DisplayName("Number in Stock")]
+        [Range(1, 20)]
         public int StockAmount { get; set; }
 
         [DisplayName("Release Date")]
