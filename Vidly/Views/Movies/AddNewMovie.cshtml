@@ -11,22 +11,37 @@
 <div class="form-group">
     @Html.LabelFor(m => m.Name)
     @Html.TextBoxFor(m => m.Name, new {@class="form-control" })
+    @Html.ValidationMessageFor(m => m.Name)
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.Genre)
     @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Genre)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.ReleaseDate)
     @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.ReleaseDate)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.StockAmount)
     @Html.TextBoxFor(m => m.StockAmount, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.StockAmount)
 </div>
 
 <button type="submit" class="btn btn-primary">Save</button>
 
-}@* End Of Form.*@
+}
+@Html.ActionLink("Go Back To Movies Index ", "Index", "Movies", new { @class = "btn btn-primary" })
+    
+
+@* End Of Form.*@
+
+
+@section scripts
+{
+
+    @Scripts.Render("~/bundles/jqueryval");
+}
