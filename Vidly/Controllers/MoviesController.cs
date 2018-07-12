@@ -20,6 +20,11 @@ namespace Vidly.Controllers
             _context = new ApplicationDbContext();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+
+        }
         public ViewResult Index()
           {
             var movies = _context.Movies.ToList();
@@ -31,7 +36,9 @@ namespace Vidly.Controllers
         {
 
 
-            return View();
+            var viewModel = new Movie();
+           
+            return View("AddNewMovie", viewModel);
         }
 
 
@@ -50,9 +57,16 @@ namespace Vidly.Controllers
 
 
 
-        public ViewResult Details(Movie ReceivedMovie)
+        public ActionResult Details(Movie ReceivedMovie)
         {
+            ModelState.Clear(); //To clear all of the warning messages.
+
+
             var foundmovie = _context.Movies.SingleOrDefault(c => c.Id == ReceivedMovie.Id);
+
+            if (foundmovie == null)
+                return HttpNotFound();
+
             return View(foundmovie);
         }
 
