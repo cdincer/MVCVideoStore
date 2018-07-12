@@ -53,12 +53,12 @@ namespace Vidly.Controllers
 
 
         [HttpPost]
-        public ActionResult AddNewMovie(Movie ReceivedMovie)
+        public ActionResult AddNewMovie(MovieFormViewModel ReceivedMovie)
         {
             
             try
             {
-                _context.Movies.Add(ReceivedMovie);
+                _context.Movies.Add(ReceivedMovie.Movie);
 
                 _context.SaveChanges();
 

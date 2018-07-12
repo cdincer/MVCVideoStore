@@ -16,8 +16,12 @@ namespace Vidly.Models
         public string Name { get; set; }
 
 
-        [Required(ErrorMessage = "Please enter movies's genre.")]
         public Genre Genre { get; set; }
+
+
+        [Display(Name = "Genre")]
+        [Required]
+        public byte GenreId { get; set; }
 
         [DisplayName("Number in Stock")]
         [Range(1, 20)]
