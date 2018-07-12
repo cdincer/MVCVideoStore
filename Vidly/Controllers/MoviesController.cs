@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,11 +35,18 @@ namespace Vidly.Controllers
 
         public ViewResult AddNewMovie()
         {
+            var GenreTypes = _context.Genres.ToList();
 
 
-            var viewModel = new Movie();
+            var viewModel = new MovieFormViewModel()
+            {
+                Movie = new Movie(),
+                Genres = GenreTypes
+
+
+            };
            
-            return View("AddNewMovie", viewModel);
+            return View("MovieForm", viewModel);
         }
 
 
@@ -47,11 +55,29 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult AddNewMovie(Movie ReceivedMovie)
         {
-            _context.Movies.Add(ReceivedMovie);
+            
+            try
+            {
+                _context.Movies.Add(ReceivedMovie);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            return RedirectToAction("Index","Movies");
+                return RedirectToAction("Index", "Movies");
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
 
 

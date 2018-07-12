@@ -17,7 +17,7 @@ namespace Vidly.Models
 
 
         [Required(ErrorMessage = "Please enter movies's genre.")]
-        public string Genre { get; set; }
+        public Genre Genre { get; set; }
 
         [DisplayName("Number in Stock")]
         [Range(1, 20)]

@@ -246,10 +246,19 @@
     <Compile Include="Migrations\201807111836130_ValidationAdd.Designer.cs">
       <DependentUpon>201807111836130_ValidationAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807121737143_GenreModelADd.cs" />
+    <Compile Include="Migrations\201807121737143_GenreModelADd.Designer.cs">
+      <DependentUpon>201807121737143_GenreModelADd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807121739185_MovieGenreChange.cs" />
+    <Compile Include="Migrations\201807121739185_MovieGenreChange.Designer.cs">
+      <DependentUpon>201807121739185_MovieGenreChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -258,6 +267,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +399,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807111836130_ValidationAdd.resx">
       <DependentUpon>201807111836130_ValidationAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807121737143_GenreModelADd.resx">
+      <DependentUpon>201807121737143_GenreModelADd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807121739185_MovieGenreChange.resx">
+      <DependentUpon>201807121739185_MovieGenreChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
