@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Vidly
+namespace VideoStore
 {
     public class RouteConfig
     {

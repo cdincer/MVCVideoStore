@@ -4,10 +4,10 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Vidly.Models;
-using Vidly.ViewModels;
+using VideoStore.Models;
+using VideoStore.ViewModels;
 using System.Data.Entity;
-namespace Vidly.Controllers
+namespace VideoStore.Controllers
 {
     public class MoviesController : Controller
     {

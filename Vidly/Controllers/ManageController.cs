@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Vidly.Models;
+using VideoStore.Models;
 
-namespace Vidly.Controllers
+namespace VideoStore.Controllers
 {
     [Authorize]
     public class ManageController : Controller

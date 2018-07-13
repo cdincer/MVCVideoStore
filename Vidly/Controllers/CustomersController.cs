@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Vidly.Models;
+using VideoStore.Models;
 using System.Data.Entity;
-using Vidly.ViewModels;
+using VideoStore.ViewModels;
 
-namespace Vidly.Controllers
+namespace VideoStore.Controllers
   {
     public class CustomersController : Controller
     {
