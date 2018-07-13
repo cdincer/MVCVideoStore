@@ -40,7 +40,7 @@ else
 
     <div class="form-group">
         @Html.LabelFor(m => m.Genre)
-        @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Genre.Name, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Genre)
     </div>
     @Html.HiddenFor(m => m.Id)

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
-
+using System.Data.Entity;
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
@@ -28,7 +28,7 @@ namespace Vidly.Controllers
         }
         public ViewResult Index()
           {
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
   
               return View(movies);    
           }
@@ -88,12 +88,12 @@ namespace Vidly.Controllers
             ModelState.Clear(); //To clear all of the warning messages.
 
 
-            var foundmovie = _context.Movies.SingleOrDefault(c => c.Id == ReceivedMovie.Id);
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == ReceivedMovie.Id);
 
-            if (foundmovie == null)
+            if (movie == null)
                 return HttpNotFound();
 
-            return View(foundmovie);
+            return View(movie);
         }
 
 
