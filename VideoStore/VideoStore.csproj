@@ -268,6 +268,10 @@
     <Compile Include="Migrations\201807121906546_genreListType.Designer.cs">
       <DependentUpon>201807121906546_genreListType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807151738381_Trimv2.cs" />
+    <Compile Include="Migrations\201807151738381_Trimv2.Designer.cs">
+      <DependentUpon>201807151738381_Trimv2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -419,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807121906546_genreListType.resx">
       <DependentUpon>201807121906546_genreListType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807151738381_Trimv2.resx">
+      <DependentUpon>201807151738381_Trimv2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
