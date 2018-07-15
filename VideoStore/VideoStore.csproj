@@ -244,10 +244,6 @@
     <Compile Include="Migrations\201711211003212_ReleaseDate.Designer.cs">
       <DependentUpon>201711211003212_ReleaseDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806261838147_Seed26Jun2018.cs" />
-    <Compile Include="Migrations\201806261838147_Seed26Jun2018.Designer.cs">
-      <DependentUpon>201806261838147_Seed26Jun2018.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201807101818445_ReleaseDateAdjustment.cs" />
     <Compile Include="Migrations\201807101818445_ReleaseDateAdjustment.Designer.cs">
       <DependentUpon>201807101818445_ReleaseDateAdjustment.cs</DependentUpon>
@@ -271,10 +267,6 @@
     <Compile Include="Migrations\201807121906546_genreListType.cs" />
     <Compile Include="Migrations\201807121906546_genreListType.Designer.cs">
       <DependentUpon>201807121906546_genreListType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807151643278_BirthDateVariableRename.cs" />
-    <Compile Include="Migrations\201807151643278_BirthDateVariableRename.Designer.cs">
-      <DependentUpon>201807151643278_BirthDateVariableRename.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -410,9 +402,6 @@
     <EmbeddedResource Include="Migrations\201711211003212_ReleaseDate.resx">
       <DependentUpon>201711211003212_ReleaseDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806261838147_Seed26Jun2018.resx">
-      <DependentUpon>201806261838147_Seed26Jun2018.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807101818445_ReleaseDateAdjustment.resx">
       <DependentUpon>201807101818445_ReleaseDateAdjustment.cs</DependentUpon>
     </EmbeddedResource>
@@ -430,9 +419,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807121906546_genreListType.resx">
       <DependentUpon>201807121906546_genreListType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807151643278_BirthDateVariableRename.resx">
-      <DependentUpon>201807151643278_BirthDateVariableRename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
