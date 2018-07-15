@@ -62,7 +62,7 @@ namespace VideoStore.Controllers
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
 
                 customerInDb.Name = customer.Name;
-                customerInDb.BirthDay = customer.BirthDay;
+                customerInDb.BirthDate = customer.BirthDate;
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribeToNewsLetter = customer.IsSubscribeToNewsLetter;
 

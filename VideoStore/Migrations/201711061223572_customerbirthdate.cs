@@ -7,12 +7,12 @@ namespace VideoStore.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Customers", "BirthDay", c => c.DateTime(nullable: false));
+            AddColumn("dbo.Customers", "BirthDate", c => c.DateTime(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Customers", "BirthDay");
+            DropColumn("dbo.Customers", "BirthDate");
         }
     }
 }

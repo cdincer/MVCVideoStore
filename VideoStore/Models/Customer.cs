@@ -24,7 +24,7 @@ namespace VideoStore.Models
 
         [Display(Name="Date Of Birth")]
         [Min18YearsIfAMember]
-        public DateTime? BirthDay { get; set; }
+        public DateTime? BirthDate { get; set; }
 
     }
 }
