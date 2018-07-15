@@ -272,6 +272,10 @@
     <Compile Include="Migrations\201807121906546_genreListType.Designer.cs">
       <DependentUpon>201807121906546_genreListType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807151643278_BirthDateVariableRename.cs" />
+    <Compile Include="Migrations\201807151643278_BirthDateVariableRename.Designer.cs">
+      <DependentUpon>201807151643278_BirthDateVariableRename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -426,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807121906546_genreListType.resx">
       <DependentUpon>201807121906546_genreListType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807151643278_BirthDateVariableRename.resx">
+      <DependentUpon>201807151643278_BirthDateVariableRename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
