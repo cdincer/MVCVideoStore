@@ -40,9 +40,8 @@ namespace VideoStore.Controllers
 
             var viewModel = new MovieFormViewModel()
             {
-                Movie = new Movie(),
+                ReleaseDate = new DateTime(2001,01,01),
                 Genres = GenreTypes
-
 
             };
            
@@ -58,7 +57,13 @@ namespace VideoStore.Controllers
             
             try
             {
-                _context.Movies.Add(ReceivedMovie.Movie);
+                Movie ToBeAdded = new Movie();
+                ToBeAdded.Id = ReceivedMovie.Id;
+                ToBeAdded.Name = ReceivedMovie.Name;
+                ToBeAdded.ReleaseDate = ReceivedMovie.ReleaseDate;
+                ToBeAdded.StockAmount = ReceivedMovie.StockAmount;
+                ToBeAdded.GenreId = ReceivedMovie.GenreId;
+                _context.Movies.Add(ToBeAdded);
 
                 _context.SaveChanges();
 
