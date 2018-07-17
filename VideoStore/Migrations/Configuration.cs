@@ -26,9 +26,9 @@ namespace VideoStore.Migrations
             context.Genres.AddOrUpdate(new Genre() { Id = 3, Name = "Genre 3" });
             context.Genres.AddOrUpdate(new Genre() { Id = 4, Name = "Genre 4" });
             context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie 1", StockAmount = 1, ReleaseDate = new DateTime(1979, 12, 12), GenreId = 1 });
-            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie 2", StockAmount = 2, ReleaseDate = new DateTime(1980, 1, 1), GenreId = 1 });
-            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie 3", StockAmount = 3, ReleaseDate = new DateTime(1981, 2, 2), GenreId = 1 });
-            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie 4", StockAmount = 4, ReleaseDate = new DateTime(1982, 3, 3), GenreId = 1 });
+            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie 2", StockAmount = 2, ReleaseDate = new DateTime(1980, 1, 1), GenreId = 2 });
+            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie 3", StockAmount = 3, ReleaseDate = new DateTime(1981, 2, 2), GenreId = 3 });
+            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie 4", StockAmount = 4, ReleaseDate = new DateTime(1982, 3, 3), GenreId = 4 });
 
             context.SaveChanges();
 
