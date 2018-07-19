@@ -28,31 +28,34 @@ namespace VideoStore.Controllers.Api
         }
 
 
-        public Customer GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c=>c.Id==id);
             if (customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
-            return customer;
+            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
 
 
         //POST /api/customers
         [HttpPost]
-        public Customer PostCustomer(Customer customer)
+        public IHttpActionResult PostCustomer(CustomerDto customeDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
+            var customer = Mapper.Map<CustomerDto, Customer>(customeDto);
             _context.Customers.Add(customer);
             _context.SaveChanges();
 
-            return customer;
+            customeDto.Id = customer.Id;
+
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customeDto);
         }
 
         //PUT /api/customers/1
-        public void UpdateCustomer(int id, Customer customer)
+        public void UpdateCustomer(int id, CustomerDto customerDto)
         {
 
             if (!ModelState.IsValid)
@@ -64,11 +67,9 @@ namespace VideoStore.Controllers.Api
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-
-            customerInDb.Name = customer.Name;
-            customerInDb.BirthDate = customer.BirthDate;
-            customerInDb.IsSubscribeToNewsLetter = customer.IsSubscribeToNewsLetter;
-            customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            var customer =
+            Mapper.Map(customerDto, customerInDb);
+          
 
             _context.SaveChanges();
         }
