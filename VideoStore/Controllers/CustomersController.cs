@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using VideoStore.Models;
 using System.Data.Entity;
 using VideoStore.ViewModels;
+using System;
 
 namespace VideoStore.Controllers
   {
@@ -95,7 +96,7 @@ namespace VideoStore.Controllers
 
         public ActionResult Edit(int id)
         {
-
+          
             var customer = _context.Customers.SingleOrDefault(c => c.Id ==id);
 
             if (customer == null)
