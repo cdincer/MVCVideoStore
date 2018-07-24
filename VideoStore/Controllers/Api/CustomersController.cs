@@ -55,6 +55,7 @@ namespace VideoStore.Controllers.Api
         }
 
         //PUT /api/customers/1
+        [HttpPut]
         public void UpdateCustomer(int id, CustomerDto customerDto)
         {
 
@@ -75,7 +76,7 @@ namespace VideoStore.Controllers.Api
         }
 
         //DELETE /api/customers/1
-
+        [HttpDelete]
         public void DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c=>c.Id==id);
