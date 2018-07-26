@@ -23,7 +23,7 @@ namespace VideoStore.Migrations
 
         protected override void Seed(VideoStore.Models.ApplicationDbContext context)
         {
-            string FirstName = "Can";
+            string FirstName = "Customer";
             var rnd = new Random();
             //Random number generation through Linq. Random doesn't exclude duplicate.
             var randomNumbers = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).Take(18).ToList();

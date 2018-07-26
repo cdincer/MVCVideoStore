@@ -58,6 +58,7 @@
         $(document).ready(function () {
             $("#customers").on("click",".js-delete", function () {
                 var button = $(this);
+
                 if (confirm("Are you sure you want to delete this customer ?")){
                     $.ajax({
                         url: "/api/customers/" + button.attr("data-customer-id"),
