@@ -58,6 +58,7 @@
         $(document).ready(function () {
             $("#customers").on("click",".js-delete", function () {
                 var button = $(this);
+                bootbox.alert("This is the default alert!");
 
                 if (confirm("Are you sure you want to delete this customer ?")){
                     $.ajax({
