@@ -1,4 +1,4 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -23,12 +23,16 @@ textarea {
     max-width: 280px;
 }
 
+select {
+   min-height:30px;
+}
 
-.field-validation-error{ color: red; font-weight: bold; }
+
+/*.field-validation-error{ color: red; font-weight: bold; }
 
 
 .input-validation-error {
 border:2px solid
 
 
-}
+}*/

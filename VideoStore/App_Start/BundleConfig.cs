@@ -26,7 +26,9 @@ namespace VideoStore
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap--lumen.css",
-                      "~/Content/bootstrap.css"));
+                       "~/Content/bootstrap.min.css",
+                      "~/Content/bootstrap.css",
+                     "~/Content/Site.css"));
         }
     }
 }
