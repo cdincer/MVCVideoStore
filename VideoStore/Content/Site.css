@@ -27,3 +27,9 @@ select {
     position: absolute;
   
 }
+
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+  margin-right: 0px;
+}
