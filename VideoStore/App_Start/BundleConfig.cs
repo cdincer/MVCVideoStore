@@ -22,12 +22,15 @@ namespace VideoStore
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/bootbox.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/DataTables/jquery.datatables.js",
+                       "~/Scripts/DataTables/jquery.bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap--lumen.css",
                        "~/Content/bootstrap.min.css",
                       "~/Content/bootstrap.css",
+                       "~/Content/DataTables/css/jquery.dataTables.css",
                      "~/Content/Site.css"));
         }
     }
