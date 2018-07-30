@@ -56,7 +56,11 @@
 {
     <script>
         $(document).ready(function () {
-            $("#customers").DataTable();
+            $("#customers").DataTable({
+                "paging": true,
+                "ordering": true,
+                "info": false
+            });
 
 
             $("#customers").on("click",".js-delete", function () {
