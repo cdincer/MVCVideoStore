@@ -20,38 +20,16 @@
 <p>
     @Html.ActionLink("New Customer", "New", "Customers", null, new { @class = "btn btn-primary" })
 </p>
- @if (!Model.Any())
-                 {
-                     <p> We don't have any customers yet.</p>
-                    }
-            else
- {
-                     <table id ="customers" class="table table-bordered table-hover">
-         <thead>
-            <tr>
-                 <th>Customer</th>
-                <th>Discount Rate</th>
-                <th>Membership Period</th>
-                <th>Delete</th>
-
-             </tr>
-         </thead>
-         <tbody>
-             @foreach(var customer in Model)
-             {
-                 <tr>
-                     <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id}, null)</td>
-                     <td>@customer.MembershipType.DiscountRate%</td>
-                     <td>@customer.MembershipType.Name</td>
-                     <td>
-                          <button data-customer-id="@customer.Id" class ="btn btn-primary js-delete">Delete
-                         </button>
-                    </td>
-                </tr>
-             }
-         </tbody>
-    </table>
- }
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Discount Rate</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 @section scripts
 {
     <script>
@@ -59,8 +37,27 @@
             $("#customers").DataTable({
                 "paging": true,
                 "ordering": true,
-                "info": false
-            });
+                "info": false,
+                ajax: {
+                    url:"/api/customers",
+                    dataSrc:""},
+                columns:
+                [{
+                    data: "name",
+                    render: function (data, type, customer)
+                    { return "<a href='/customer/edit" + customer.id + "'>" + customer.name + "</a>"; }
+                },
+                {
+                    data: "name"
+                },
+                {
+                    data:"id",
+                    render: function (data)
+                    { return "<button class='btn btn-primary js-delete' data-customer-id=" +data + ">Delete</button>"; }
+                }
+                ]
+            }
+               );
 
 
             $("#customers").on("click",".js-delete", function () {
