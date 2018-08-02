@@ -126,7 +126,7 @@ namespace VideoStore.Controllers
                 var DBMovie = _context.Movies.Single(c => c.Id == MovieEdited.Id);
 
                 DBMovie.Name = MovieEdited.Name;
-                DBMovie.Genre = MovieEdited.Genre;
+                DBMovie.GenreId = MovieEdited.GenreId;
                 DBMovie.StockAmount = MovieEdited.StockAmount;
                 DBMovie.ReleaseDate = MovieEdited.ReleaseDate;
 

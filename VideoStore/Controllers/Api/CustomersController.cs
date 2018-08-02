@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using VideoStore.Dtos;
 using VideoStore.Models;
+using 
 
 namespace VideoStore.Controllers.Api
 {
@@ -24,7 +25,8 @@ namespace VideoStore.Controllers.Api
         //GET /api/customers
         public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            var customerDtos=_context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            return Ok(customerDtos);
         }
 
 
