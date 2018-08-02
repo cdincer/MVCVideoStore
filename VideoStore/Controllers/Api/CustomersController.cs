@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using VideoStore.Dtos;
 using VideoStore.Models;
-using 
+using System.Data.Entity; 
 
 namespace VideoStore.Controllers.Api
 {
@@ -23,9 +23,11 @@ namespace VideoStore.Controllers.Api
         }
 
         //GET /api/customers
-        public IEnumerable<CustomerDto> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            var customerDtos=_context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            var customerDtos=_context.Customers.Include(c=>c.MembershipType)
+                .ToList().
+                Select(Mapper.Map<Customer, CustomerDto>);
             return Ok(customerDtos);
         }
 
