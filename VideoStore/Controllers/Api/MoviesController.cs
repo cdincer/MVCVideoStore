@@ -7,6 +7,9 @@ using System.Net.Http;
 using System.Web.Http;
 using VideoStore.Dtos;
 using VideoStore.Models;
+using System.Data.Entity;
+
+
 
 namespace VideoStore.Controllers.Api
 {
@@ -25,9 +28,13 @@ namespace VideoStore.Controllers.Api
         }
 
         //GET /api/movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IHttpActionResult GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movieDtos= _context.Movies.Include(m=>m.Genre)
+                                           .ToList().
+                                           Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(movieDtos);
         }
 
 

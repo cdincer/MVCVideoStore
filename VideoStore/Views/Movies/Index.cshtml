@@ -37,8 +37,9 @@
                     { return "<a href='/movies/details/" + movie.id + "'>" + movie.name + "</a>"; }
                 },
                 {
-                    data: "name"
-                },
+                    data: "genre.name"
+
+                 },
                 {
                     data:"id",
                     render: function (data)

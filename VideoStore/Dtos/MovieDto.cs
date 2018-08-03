@@ -15,7 +15,8 @@ namespace VideoStore.Dtos
          
             public string Name { get; set; }
 
-            [Required]
+        public GenreDto Genre { get; set; }
+
             public byte GenreId { get; set; }
 
             
