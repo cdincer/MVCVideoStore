@@ -35,7 +35,8 @@
 {
     <script>
         $(document).ready(function () {
-            $("#customers").DataTable({
+
+            var table=$("#customers").DataTable({
                 "paging": true,
                 "ordering": true,
                 "info": false,
@@ -75,7 +76,8 @@
                             url: "/api/customers/" + button.attr("data-customer-id"),
                             method: "DELETE",
                             success: function () {
-                                button.parents("tr").remove();
+                                table.row(button.parents("tr")).remove().draw();
+                                
                             }
 
                         });
