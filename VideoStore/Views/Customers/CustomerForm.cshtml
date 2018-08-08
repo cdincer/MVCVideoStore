@@ -16,7 +16,7 @@ else
 
 @using (Html.BeginForm("Save", "Customers"))
 {
-    @Html.ValidationSummary(true,"Please fill out the mentioned fills below") @*This where all of the errors displayed*@
+    @Html.ValidationSummary(true,"Please fill out the mentioned parts below") @*This where all of the errors displayed*@
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
         @Html.TextBoxFor(m => m.Customer.Name, new {@class="form-control" })
