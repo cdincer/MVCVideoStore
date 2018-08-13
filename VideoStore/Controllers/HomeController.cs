@@ -8,6 +8,7 @@ namespace VideoStore.Controllers
 {
     public class HomeController : Controller
     {
+        [AllowAnonymous] //This helps people without accounts to see the main landing page.
         public ActionResult Index()
         {
             return View();
