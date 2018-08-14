@@ -337,13 +337,13 @@ textarea {
 /*a {
 color: rgba(255, 255, 255, 0.5);   
   text-decoration: none;
-}*/
+}
 
 a:hover,
 a:focus {
-  color: #2a6496;
-  text-decoration: underline;
-}
+color: rgba(255, 255, 255, 0.75);
+text-decoration: underline;
+}*/
 
 a:focus {
   outline: thin dotted #333;
