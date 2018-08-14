@@ -1,5 +1,6 @@
 namespace VideoStore.Migrations
 {
+    using Microsoft.AspNet.Identity;
     using Models;
     using System;
     using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace VideoStore.Migrations
         protected override void Seed(VideoStore.Models.ApplicationDbContext context)
         {
             string FirstName = "Customer";
+            //string NickPart
             var rnd = new Random();
             //Random number generation through Linq. Random doesn't exclude duplicate.
             var randomNumbers = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).Take(18).ToList();
@@ -46,9 +48,13 @@ namespace VideoStore.Migrations
             context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[10], StockAmount = RandomStockNumbers[1], ReleaseDate = new DateTime(1980, 1, 1), GenreId = Convert.ToByte(RandomGenreNumbers[1]) });
             context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[11], StockAmount = RandomStockNumbers[2], ReleaseDate = new DateTime(1981, 2, 2), GenreId = Convert.ToByte(RandomGenreNumbers[2]) });
             context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie" + " " + randomNumbers[12], StockAmount = RandomStockNumbers[3], ReleaseDate = new DateTime(1982, 3, 3), GenreId = Convert.ToByte(RandomGenreNumbers[3]) });
-
+            //context.Users.AddOrUpdate(new ApplicationUser() {UserName= };
             context.SaveChanges();
 
         }
     }
 }
+
+
+//var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+//var result = await UserManager.CreateAsync(user, model.Password);
