@@ -58,7 +58,6 @@ namespace VideoStore.Migrations
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
                 var role = new IdentityRole { Name = "CanManageMovies" };
-
                 manager.Create(role);
             }
             
@@ -68,9 +67,24 @@ namespace VideoStore.Migrations
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser { UserName = "admin@videostore.com" ,Email= "admin@videostore.com" };
+                var user2 = new ApplicationUser { UserName = "guest@videostore.com", Email = "guest@videostore.com" };
 
                 manager.Create(user, "Candincer1!");
+                manager.Create(user2, "Candincer1!");
+
                 manager.AddToRole(user.Id, "CanManageMovies");
+            }
+
+            //Seeding the get user in AspNetUsersTable
+            if (!context.Users.Any(u => u.UserName == "guest@videostore.com"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user2 = new ApplicationUser { UserName = "guest@videostore.com", Email = "guest@videostore.com" };
+
+                manager.Create(user2, "Candincer1!");
+
+                manager.AddToRole(user2.Id, "CanManageMovies");
             }
 
             context.SaveChanges();
