@@ -284,6 +284,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AuthorizationDetails.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Models\Genre.cs" />
