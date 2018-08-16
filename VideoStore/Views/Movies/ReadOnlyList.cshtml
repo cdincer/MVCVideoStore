@@ -1,0 +1,48 @@
+﻿@model IEnumerable<VideoStore.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Movies</h2>
+<table id="movies" class="table table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <th>Movie Name</th>
+            <th>Movie Genre</th>
+           </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#movies").DataTable({
+                "paging": true,
+                "ordering": true,
+                "info": false,
+                "iDisplayLength": 25,
+                ajax: {
+                    url:"/api/movies",
+                    dataSrc:""},
+                columns:
+                [{
+                    data: "name"
+                  
+                },
+                {
+                    data: "genre.name"
+
+                 }
+                ]
+            }
+            );
+
+             });
+    </script>
+}

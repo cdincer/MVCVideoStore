@@ -28,10 +28,15 @@ namespace VideoStore.Controllers
         }
         public ViewResult Index()
           {
-  
-              return View();    
-          }
+            if (User.IsInRole("CanManageMovies"))
+            {
+                return View("List");
+            }
+            else
+                return View("ReadOnlyList");
+        }
 
+        [Authorize(Roles ="CanManageMovies")]
         public ViewResult AddNewMovie()
         {
             var GenreTypes = _context.Genres.ToList();
