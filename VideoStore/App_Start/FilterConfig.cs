@@ -9,6 +9,8 @@ namespace VideoStore
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new AuthorizeAttribute()); //Global filtering
+            filters.Add(new RequireHttpsAttribute()); //For OAuth with Social Websites
+
         }
     }
 }
