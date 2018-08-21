@@ -8,6 +8,11 @@ namespace VideoStore.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "ID Number")]
+        public string IDNumber { get; set; }
     }
 
     public class ExternalLoginListViewModel
