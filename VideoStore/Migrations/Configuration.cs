@@ -81,7 +81,6 @@ namespace VideoStore.Migrations
 
                 manager.Create(user2, "Candincer1!");
 
-                manager.AddToRole(user2.Id, "CanManageMovies");
             }
 
             context.SaveChanges();
