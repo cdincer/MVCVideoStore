@@ -6,9 +6,13 @@ using System.Web.Mvc;
 
 namespace VideoStore.Controllers
 {
+    [AllowAnonymous]         //This helps people without accounts to see the main landing page.
+
     public class HomeController : Controller
     {
-        [AllowAnonymous] //This helps people without accounts to see the main landing page.
+        //Cache store period in seconds and its location.
+        //Have caching depending on parameters. Star is for all.
+        [OutputCache(Duration = 50, Location = System.Web.UI.OutputCacheLocation.Server, VaryByParam = "*")]
         public ActionResult Index()
         {
             return View();
