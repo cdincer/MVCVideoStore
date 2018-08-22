@@ -5,6 +5,8 @@ using VideoStore.Models;
 using System.Data.Entity;
 using VideoStore.ViewModels;
 using System;
+using System.Runtime;
+using System.Runtime.Caching;
 
 namespace VideoStore.Controllers
   {
@@ -77,8 +79,17 @@ namespace VideoStore.Controllers
             _context.Dispose();
 
         }
+
           public ViewResult Index()
           {
+            const string CacheItem1 = "MembershipTypes";
+
+            if (MemoryCache.Default[CacheItem1] == null)
+            {
+                MemoryCache.Default[CacheItem1] = _context.MembershipTypes.ToList();
+            }
+
+            var Membershiptypes = MemoryCache.Default[CacheItem1] as IEnumerable<MembershipType>;
   
               return View();
           }
