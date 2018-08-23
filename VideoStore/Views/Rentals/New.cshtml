@@ -8,12 +8,12 @@
 <form>
     <div class="form-group">
         <label>Customer</label>
-        <input id="customer" type="text" value="" class="form-control" />
+        <input id="customer" type="text"  class="typeahead" />
     </div>
 
     <div class="form-group">
         <label>Movies</label>
-        <input class="typeahead" type="text" placeholder="Search For Movies">
+        <input id ="movie" class="typeahead" type="text" placeholder="Search For Movies">
     </div>
 
 
@@ -24,6 +24,8 @@
 {
     <script>
         $(document).ready(function () {
+            var vm = {};
+
             var customers = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('Name'), //checked
                 queryTokenizer: Bloodhound.tokenizers.whitespace, //checked
@@ -42,7 +44,31 @@
                     name: 'customers',
                     display: 'Name',
                     source: customers
+                }).on("typeahead:select", function (e, customer)
+                {
+                    vm.customerId = customer.id;
                 });
+
+
+
+            var movies = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/movies?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#movie').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'movies',
+                display: 'name',
+                source: movies
+            });
+
 
         });
 
