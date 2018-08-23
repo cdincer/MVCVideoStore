@@ -30,6 +30,9 @@ namespace VideoStore.Models
         [DisplayName("Release Date")]
         public DateTime ReleaseDate { get; set; }
 
+        [DisplayName("Number Avaliable For Hire")]
+        public byte NumberAvailable { get; set; }
+
 
     }
 }

@@ -320,6 +320,10 @@
     <Compile Include="Migrations\201808230915375_RentalsModel.Designer.cs">
       <DependentUpon>201808230915375_RentalsModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808230942162_MovieAvaliableAddition.cs" />
+    <Compile Include="Migrations\201808230942162_MovieAvaliableAddition.Designer.cs">
+      <DependentUpon>201808230942162_MovieAvaliableAddition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AuthorizationDetails.cs" />
@@ -507,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808230915375_RentalsModel.resx">
       <DependentUpon>201808230915375_RentalsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808230942162_MovieAvaliableAddition.resx">
+      <DependentUpon>201808230942162_MovieAvaliableAddition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
