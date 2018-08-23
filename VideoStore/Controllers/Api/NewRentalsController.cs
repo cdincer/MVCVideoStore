@@ -27,16 +27,22 @@ namespace VideoStore.Controllers.Api
             var customer = _context.Customers.SingleOrDefault(c => c.Id == newRental.CustomerId);
 
             if (customer == null)
-                return BadRequest("Customer ID sent is null");
+                return BadRequest("Customer ID  is not valid");
 
-            var movies = _context.Movies.Where(m => newRental.MovieIds.Contains(m.Id));
+            var movies = _context.Movies.Where(m => newRental.MovieIds.Contains(m.Id)).ToList();
 
-            if (movies == null)
-                return BadRequest("Movie ID sent is null");
+            if (newRental.MovieIds.Count == 0)
+                return BadRequest("Movie ID is not valid");
+
+            if (movies.Count != newRental.MovieIds.Count)
+                return BadRequest("One or more MovieIds are not valid");
 
             foreach (var movie in movies)
             {
-                movie.NumberAvailable--;
+                if (movie.NumberAvailable == 0)
+                    return BadRequest("Movie is not available");
+
+                movie.NumberAvailable--; //Subtract rented amount from this movies record.
 
                 var rental = new Rental
                 {

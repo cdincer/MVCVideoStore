@@ -34,9 +34,10 @@ namespace VideoStore.Migrations
             var RandomGenreNumbers = Enumerable.Range(1, 8).OrderBy(x => rnd.Next()).Take(4).ToList();
             //How to seed a table. Membership types seeind done through a migration. Its under "SeedingMembership"
             context.Customers.AddOrUpdate(h => h.Id,new Customer() { Name = FirstName+" "+ randomNumbers[1], IsSubscribeToNewsLetter = false, MembershipTypeId = 1, BirthDate = new DateTime(1979, 12, 12) });
-            context.Customers.AddOrUpdate(h => h.Id,new Customer() { Name = FirstName + " " + randomNumbers[2], IsSubscribeToNewsLetter = false, MembershipTypeId = 1, BirthDate = new DateTime(1980, 1, 1) });
-            context.Customers.AddOrUpdate(h => h.Id,new Customer() { Name = FirstName + " " + randomNumbers[3], IsSubscribeToNewsLetter = true, MembershipTypeId = 2, BirthDate = new DateTime(1981, 2, 2) });
-            context.Customers.AddOrUpdate(h => h.Id, new Customer() { Name = FirstName + " " + randomNumbers[4], IsSubscribeToNewsLetter = true, MembershipTypeId = 3, BirthDate = new DateTime(1982, 3, 3) });
+            //Commented out below customers because we don't need to seed this many customers. One will do fine.
+            //context.Customers.AddOrUpdate(h => h.Id,new Customer() { Name = FirstName + " " + randomNumbers[2], IsSubscribeToNewsLetter = false, MembershipTypeId = 1, BirthDate = new DateTime(1980, 1, 1) });
+            //context.Customers.AddOrUpdate(h => h.Id,new Customer() { Name = FirstName + " " + randomNumbers[3], IsSubscribeToNewsLetter = true, MembershipTypeId = 2, BirthDate = new DateTime(1981, 2, 2) });
+            //context.Customers.AddOrUpdate(h => h.Id, new Customer() { Name = FirstName + " " + randomNumbers[4], IsSubscribeToNewsLetter = true, MembershipTypeId = 3, BirthDate = new DateTime(1982, 3, 3) });
 
             context.Genres.AddOrUpdate(new Genre() { Id = 1, Name = "Genre 1" });
             context.Genres.AddOrUpdate(new Genre() { Id = 2, Name = "Genre 2" });
