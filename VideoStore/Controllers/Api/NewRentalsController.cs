@@ -24,15 +24,20 @@ namespace VideoStore.Controllers.Api
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental) { 
 
 
-            var customer = _context.Customers.Single(c => c.Id == newRental.CustomerId);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == newRental.CustomerId);
 
             if (customer == null)
                 return BadRequest("Customer ID sent is null");
 
             var movies = _context.Movies.Where(m => newRental.MovieIds.Contains(m.Id));
 
+            if (movies == null)
+                return BadRequest("Movie ID sent is null");
+
             foreach (var movie in movies)
             {
+                movie.NumberAvailable--;
+
                 var rental = new Rental
                 {
                     Customer = customer,
