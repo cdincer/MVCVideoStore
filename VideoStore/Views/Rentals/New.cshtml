@@ -8,14 +8,23 @@
 <form>
     <div class="form-group">
         <label>Customer</label>
-        <input id="customer" type="text"  class="typeahead" />
+        <div class="tt-container">
+        <input id="customer" type="text"  class="typeahead" placeholder="Search For Customers">
+        </div>
     </div>
 
     <div class="form-group">
         <label>Movies</label>
-        <input id ="movie" class="typeahead" type="text" placeholder="Search For Movies">
+        <div class="tt-container">
+        <input id="movie" class="typeahead" type="text" placeholder="Search For Movies">
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <ul id="movies" class="list-group"></ul>
+        </div>
+    </div>
 
     <button class="btn btn-primary">Submit</button>
 </form>
@@ -24,7 +33,9 @@
 {
     <script>
         $(document).ready(function () {
-            var vm = {};
+            var vm = {
+        movieIds:[]
+            };
 
             var customers = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'), //checked
@@ -67,6 +78,12 @@
                 name: 'movies',
                 display: 'name',
                 source: movies
+            }).on("typeahead:select", function (e, movie)
+            {
+                $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
+                $("#movie").typeahead("val", "");
+
+                vm.movieIds.push(movie.id);
             });
 
 
