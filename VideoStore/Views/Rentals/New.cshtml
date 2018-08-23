@@ -27,14 +27,14 @@
             var vm = {};
 
             var customers = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('Name'), //checked
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'), //checked
                 queryTokenizer: Bloodhound.tokenizers.whitespace, //checked
                 remote: {
                     url: '/api/customers?query=%QUERY',
                     wildcard: '%QUERY'
                 }
             });
-
+            
             $('#customer').typeahead(
                 {
                     minLength: 3,
@@ -42,13 +42,13 @@
                 },
                 {
                     name: 'customers',
-                    display: 'Name',
+                    display: 'name',
                     source: customers
                 }).on("typeahead:select", function (e, customer)
                 {
                     vm.customerId = customer.id;
                 });
-
+      
 
 
             var movies = new Bloodhound({
