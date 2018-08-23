@@ -46,10 +46,10 @@ namespace VideoStore.Migrations
             context.Genres.AddOrUpdate(new Genre() { Id = 6, Name = "Genre 6"});
             context.Genres.AddOrUpdate(new Genre() { Id = 7, Name = "Genre 7"});
             context.Genres.AddOrUpdate(new Genre() { Id = 8, Name = "Genre 8"});
-            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[9], StockAmount = RandomStockNumbers[0], ReleaseDate = new DateTime(1979, 12, 12), GenreId = Convert.ToByte(RandomGenreNumbers[0]) });
-            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[10], StockAmount = RandomStockNumbers[1], ReleaseDate = new DateTime(1980, 1, 1), GenreId = Convert.ToByte(RandomGenreNumbers[1]) });
-            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[11], StockAmount = RandomStockNumbers[2], ReleaseDate = new DateTime(1981, 2, 2), GenreId = Convert.ToByte(RandomGenreNumbers[2]) });
-            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie" + " " + randomNumbers[12], StockAmount = RandomStockNumbers[3], ReleaseDate = new DateTime(1982, 3, 3), GenreId = Convert.ToByte(RandomGenreNumbers[3]) });
+            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[9], StockAmount = RandomStockNumbers[0], ReleaseDate = new DateTime(1979, 12, 12), GenreId = Convert.ToByte(RandomGenreNumbers[0]),NumberAvailable = Convert.ToByte(RandomStockNumbers[0]) });
+            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[10], StockAmount = RandomStockNumbers[1], ReleaseDate = new DateTime(1980, 1, 1), GenreId = Convert.ToByte(RandomGenreNumbers[1]), NumberAvailable = Convert.ToByte(RandomStockNumbers[1]) });
+            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie"+" " + randomNumbers[11], StockAmount = RandomStockNumbers[2], ReleaseDate = new DateTime(1981, 2, 2), GenreId = Convert.ToByte(RandomGenreNumbers[2]), NumberAvailable = Convert.ToByte(RandomStockNumbers[2]) });
+            context.Movies.AddOrUpdate(new Movie() { Name = "Random Movie" + " " + randomNumbers[12], StockAmount = RandomStockNumbers[3], ReleaseDate = new DateTime(1982, 3, 3), GenreId = Convert.ToByte(RandomGenreNumbers[3]), NumberAvailable = Convert.ToByte(RandomStockNumbers[3]) });
 
 
             //Seeding roles in AspNetRoles Table
@@ -82,6 +82,7 @@ namespace VideoStore.Migrations
                 manager.Create(user2, "Candincer1!");
 
             }
+
 
             context.SaveChanges();
 
