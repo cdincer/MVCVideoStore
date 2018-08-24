@@ -25,7 +25,8 @@ namespace VideoStore
                       "~/Scripts/respond.js",
                       "~/Scripts/DataTables/jquery.datatables.js",
                        "~/Scripts/DataTables/jquery.bootstrap.js",
-                       "~/Scripts/typeahead.bundle.js"));
+                       "~/Scripts/typeahead.bundle.js",
+                       "~/Scripts/toastr.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap--lumen.css",
@@ -33,6 +34,7 @@ namespace VideoStore
                       "~/Content/bootstrap.css",
                        "~/Content/DataTables/css/jquery.dataTables.css",
                        "~/Content/typeahead.css",
+                        "~/Content/toastr.css",
                      "~/Content/Site.css"));
         }
     }
