@@ -100,7 +100,6 @@
             var validator = $("#newRental").validate({
                 submitHandler: function ()
                 {
-                    $("#newRental").submit(function (e) {
                         $.ajax({
                             url: "/api/newrentals",
                             method: "post",
@@ -122,8 +121,8 @@
 
                         });
 
-                        return false;
-                    });//End Of New Rental submit to api
+                    //End Of New Rental submit to api
+                    return false;
 
                 }//End of Submit Handler
                 }); //End Of Validate
