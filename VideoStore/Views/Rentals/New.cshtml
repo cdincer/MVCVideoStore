@@ -9,14 +9,14 @@
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
-        <input id="customer" type="text"  class="typeahead form-control" placeholder="Search For Customers">
-        </div>
+        <input id="customer" name="customer"  data-rule-validCustomer="true" required  type="text"  class="typeahead form-control" placeholder="Search For Customers"> @*How you put jquery validation on your textbox, it looks for your custom attribute*@
+        </div>                                                                                                                                         @*data-rule-validCustomer="true" is the bit that does this*@   
     </div>
 
     <div class="form-group">
         <label>Movies</label>
         <div class="tt-container">
-        <input id="movie" class="typeahead form-control" type="text" placeholder="Search For Movies">
+        <input id="movie" name="movie" data-rule-validMovie="true" class="typeahead form-control" type="text" placeholder="Search For Movies">
         </div>
     </div>
 
@@ -31,6 +31,7 @@
 
 @section scripts
 {
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
             var vm = {
@@ -86,23 +87,48 @@
                 vm.movieIds.push(movie.id);
             });
 
-            $("#newRental").submit(function (e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "/api/newrentals",
-                    method: "post",
-                    data: vm
+            //Stuff to look through list of searched customers with bloodhound and validate that we picked one customer.
+            $.validator.addMethod("validCustomer", function () {
+                return vm.customerId && vm.customerId !== 0;
+            }, "Please select a valid customer.");
 
-                })
-                .done(function () {
-                    toastr.success("Rentals successfully recorded.");
-                })
-                .fail(function () {
-                    toastr.error("Rentals failed to record.");
+            //Go through our variable of vm to look if the user picked out any movies,if it didn't show him a error.
+            $.validator.addMethod("validMovie", function () {
+                return vm.movieIds.length > 0;
+            }, "Please select a valid movie.");
 
-                });
-            });
+            var validator = $("#newRental").validate({
+                submitHandler: function ()
+                {
+                    $("#newRental").submit(function (e) {
+                        $.ajax({
+                            url: "/api/newrentals",
+                            method: "post",
+                            data: vm
 
+                        })
+                        .done(function () {
+                            toastr.success("Rentals successfully recorded.");
+                            $("#customer").typeahead("val", "");
+                            $("#movie").typeahead("val", "");
+                            $("#movies").empty();
+
+                            vm = { movieIds: [] };
+
+                            validator.resetForm();
+                        })
+                        .fail(function () {
+                            toastr.error("Rentals failed to record.");
+
+                        });
+
+                        return false;
+                    });//End Of New Rental submit to api
+
+                }//End of Submit Handler
+                }); //End Of Validate
+
+          
 
 
 
