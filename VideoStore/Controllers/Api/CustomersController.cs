@@ -7,7 +7,8 @@ using System.Net.Http;
 using System.Web.Http;
 using VideoStore.Dtos;
 using VideoStore.Models;
-using System.Data.Entity; 
+using System.Data.Entity;
+using VideoStore.Filters;
 
 namespace VideoStore.Controllers.Api
 {
@@ -23,6 +24,10 @@ namespace VideoStore.Controllers.Api
         }
 
         //GET /api/customers
+
+        [Route]
+        [IdentityBasicAuthentication] // Enable authentication via an ASP.NET Identity user name and password
+        [Authorize] // Require some form of authentication
         public IHttpActionResult GetCustomers(string query = null)
         {
             var customersQuery = _context.Customers.Include(c => c.MembershipType);
