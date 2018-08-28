@@ -25,7 +25,6 @@ namespace VideoStore.Controllers.Api
 
         //GET /api/customers
 
-        [Route]
         [IdentityBasicAuthentication] // Enable authentication via an ASP.NET Identity user name and password
         [Authorize(Roles = AuthorizationDetails.CanManageMovies)]
         // Require some form of authentication
