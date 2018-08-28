@@ -12,10 +12,10 @@ namespace VideoStore.Filters
     {
         protected override async Task<IPrincipal> AuthenticateAsync(string userName, string password, CancellationToken cancellationToken)
         {
-            UserManager<IdentityUser> userManager = CreateUserManager();
+            UserManager<ApplicationUser> userManager = CreateUserManager();
 
             cancellationToken.ThrowIfCancellationRequested(); // Unfortunately, UserManager doesn't support CancellationTokens.
-            IdentityUser user = await userManager.FindAsync(userName, password);
+            ApplicationUser user = await userManager.FindAsync(userName, password);
 
             if (user == null)
             {
@@ -29,9 +29,9 @@ namespace VideoStore.Filters
             return new ClaimsPrincipal(identity);
         }
 
-        private static UserManager<IdentityUser> CreateUserManager()
+        private static UserManager<ApplicationUser> CreateUserManager()
         {
-            return new UserManager<IdentityUser>(new UserStore<IdentityUser>(new ApplicationDbContext()));
+            return new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
         }
     }
 }
