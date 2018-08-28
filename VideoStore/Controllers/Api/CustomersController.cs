@@ -27,7 +27,8 @@ namespace VideoStore.Controllers.Api
 
         [Route]
         [IdentityBasicAuthentication] // Enable authentication via an ASP.NET Identity user name and password
-        [Authorize] // Require some form of authentication
+        [Authorize(Roles = AuthorizationDetails.CanManageMovies)]
+        // Require some form of authentication
         public IHttpActionResult GetCustomers(string query = null)
         {
             var customersQuery = _context.Customers.Include(c => c.MembershipType);
