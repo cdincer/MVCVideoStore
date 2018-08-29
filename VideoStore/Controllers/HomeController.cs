@@ -20,7 +20,7 @@ namespace VideoStore.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Come on down and rent your movies from us directly !";
 
             return View();
         }
