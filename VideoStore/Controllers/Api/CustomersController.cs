@@ -12,6 +12,7 @@ using VideoStore.Filters;
 
 namespace VideoStore.Controllers.Api
 {
+    [IdentityBasicAuthentication] // Enable authentication via an ASP.NET Identity user name and password
     public class CustomersController : ApiController
     {
 
@@ -25,8 +26,7 @@ namespace VideoStore.Controllers.Api
 
         //GET /api/customers
 
-        [IdentityBasicAuthentication] // Enable authentication via an ASP.NET Identity user name and password
-        [Authorize(Roles = AuthorizationDetails.CanManageMovies)]
+     
         // Require some form of authentication
         public IHttpActionResult GetCustomers(string query = null)
         {
@@ -91,6 +91,7 @@ namespace VideoStore.Controllers.Api
         }
 
         //DELETE /api/customers/1
+        [Authorize(Roles = AuthorizationDetails.CanManageMovies)]
         [HttpDelete]
         public void DeleteCustomer(int id)
         {
