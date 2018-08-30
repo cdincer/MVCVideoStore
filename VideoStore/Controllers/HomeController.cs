@@ -12,7 +12,8 @@ namespace VideoStore.Controllers
     {
         //Cache store period in seconds and its location.
         //Have caching depending on parameters. Star is for all.
-        [OutputCache(Duration = 50, Location = System.Web.UI.OutputCacheLocation.Server, VaryByParam = "*")]
+        //Cache is disabled until i can find a way to do partial caching in a efficient manner.
+        //[OutputCache(Duration = 50, Location = System.Web.UI.OutputCacheLocation.Server, VaryByParam = "*")]
         public ActionResult Index()
         {
             return View();
