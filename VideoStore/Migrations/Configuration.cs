@@ -54,14 +54,25 @@ namespace VideoStore.Migrations
 
 
             //Seeding roles in AspNetRoles Table
-            if (!context.Roles.Any(r => r.Name == "CanManageMovies"))
+            if (!context.Roles.Any(r => r.Name == "Admin"))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "CanManageMovies" };
+                var role = new IdentityRole { Name = "Admin" };
                 manager.Create(role);
             }
-            
+
+            if (!context.Roles.Any(r => r.Name == "Employee"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "Employee" };
+                manager.Create(role);
+            }
+
+
+
+
             //Seeding users in AspNetUsers Table
             if (!context.Users.Any(u => u.UserName == "admin@videostore.com"))
             {
@@ -70,15 +81,15 @@ namespace VideoStore.Migrations
                 var user = new ApplicationUser { UserName = "admin@videostore.com" ,Email= "admin@videostore.com",IDNumber="1111" };
 
                 manager.Create(user, "Candincer1!");
-                manager.AddToRole(user.Id, "CanManageMovies");
+                manager.AddToRole(user.Id, "Admin");
             }
 
             //Seeding the get user in AspNetUsersTable
-            if (!context.Users.Any(u => u.UserName == "guest@videostore.com"))
+            if (!context.Users.Any(u => u.UserName == "employee@videostore.com"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user2 = new ApplicationUser { UserName = "guest@videostore.com", Email = "guest@videostore.com", IDNumber = "2222" };
+                var user2 = new ApplicationUser { UserName = "employee@videostore.com", Email = "employee@videostore.com", IDNumber = "2222" };
 
                 manager.Create(user2, "Candincer1!");
 

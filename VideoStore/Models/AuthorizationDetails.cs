@@ -7,6 +7,7 @@ namespace VideoStore.Models
 {
     public static class AuthorizationDetails
     {
-        public const string CanManageMovies = "CanManageMovies";
+        public const string AdminLevel = "Admin";
+        public const string EmployeeLevel = "Employee";
     }
 }

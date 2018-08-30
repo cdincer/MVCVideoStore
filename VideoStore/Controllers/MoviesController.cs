@@ -28,7 +28,7 @@ namespace VideoStore.Controllers
         }
         public ViewResult Index()
           {
-            if (User.IsInRole(AuthorizationDetails.CanManageMovies))
+            if (User.IsInRole(AuthorizationDetails.AdminLevel))
             {
                 return View("List");
             }
@@ -36,7 +36,7 @@ namespace VideoStore.Controllers
                 return View("ReadOnlyList");
         }
 
-        [Authorize(Roles = AuthorizationDetails.CanManageMovies)]
+        [Authorize(Roles = AuthorizationDetails.AdminLevel)]
         public ViewResult AddNewMovie()
         {
             var GenreTypes = _context.Genres.ToList();

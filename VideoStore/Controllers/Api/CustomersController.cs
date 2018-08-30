@@ -91,7 +91,7 @@ namespace VideoStore.Controllers.Api
         }
 
         //DELETE /api/customers/1
-        [Authorize(Roles = AuthorizationDetails.CanManageMovies)]
+        [Authorize(Roles = AuthorizationDetails.AdminLevel)]
         [HttpDelete]
         public void DeleteCustomer(int id)
         {
