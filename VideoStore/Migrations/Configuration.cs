@@ -92,7 +92,7 @@ namespace VideoStore.Migrations
                 var user2 = new ApplicationUser { UserName = "employee@videostore.com", Email = "employee@videostore.com", IDNumber = "2222" };
 
                 manager.Create(user2, "Candincer1!");
-
+                manager.AddToRole(user2.Id, "Employee");
             }
 
 
