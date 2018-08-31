@@ -331,6 +331,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\AuthorizationDetails.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
