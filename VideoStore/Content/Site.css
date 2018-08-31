@@ -46,3 +46,10 @@ color: rgba(255, 255, 255, 0.5) ;
 
 
 
+#bottombar {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
