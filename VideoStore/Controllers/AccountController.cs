@@ -134,6 +134,7 @@ namespace VideoStore.Controllers
             }
         }
 
+ 
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -479,6 +480,19 @@ namespace VideoStore.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+        }
+
+        public ApplicationDbContext _context2;
+
+        public ActionResult Index()
+        {
+            _context2 = new ApplicationDbContext();
+
+
+            var Users = _context2.Users.ToList();
+
+
+            return View(Users);
         }
         #endregion
     }
