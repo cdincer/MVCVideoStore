@@ -24,7 +24,6 @@ namespace VideoStore
                       "~/Scripts/bootbox.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/DataTables/jquery.datatables.js",
-                       "~/Scripts/DataTables/jquery.bootstrap.js",
                        "~/Scripts/typeahead.bundle.js",
                        "~/Scripts/toastr.js"));
 
