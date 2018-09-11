@@ -1,4 +1,4 @@
-﻿@model  IEnumerable<VideoStore.Models.ApplicationUser>
+﻿@model  IEnumerable<VideoStore.ViewModels.AMLViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -20,9 +20,9 @@
         {
 
             <tr>
-                <td>@item.UserName</td>
                 <td>@item.Email</td>
-                <td>@item.IDNumber</td>
+                <td>@item.UserName</td>
+                <td>@item.RoleName</td>
             </tr>
 
         }
