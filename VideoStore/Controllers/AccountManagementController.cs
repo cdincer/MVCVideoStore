@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using VideoStore.Models;
 using VideoStore.ViewModels;
+using VideoStore.Query;
 
 namespace VideoStore.Controllers
 {
@@ -19,7 +20,7 @@ namespace VideoStore.Controllers
 
 
 
-          var UserRoles = _context2.Database.SqlQuery<AMLViewModel>("select utable.Email,utable.UserName,nroles.Name AS RoleName ,uroles.UserId from AspNetUserRoles uroles LEFT JOIN AspNetRoles nroles ON nroles.Id = uroles.RoleId LEFT JOIN AspNetUsers utable ON utable.Id = uroles.UserId");
+          var UserRoles = _context2.Database.SqlQuery<AMLViewModel>(AccountManagement.GetUserList());
            var Conversion = UserRoles.ToList();
      
 
