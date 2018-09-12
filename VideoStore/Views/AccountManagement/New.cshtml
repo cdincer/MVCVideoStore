@@ -7,6 +7,7 @@
 
 <h2>New</h2>
 
+
 @using (Html.BeginForm("New", "AccountManagement"))
 {
     <div class="form-group">
@@ -14,6 +15,7 @@
         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Email)
     </div>
+
     <div class="form-group">
         @Html.LabelFor(m =>m.IDNumber)
         @Html.TextBoxFor(m => m.IDNumber)

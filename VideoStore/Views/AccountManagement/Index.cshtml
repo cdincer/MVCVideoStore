@@ -5,8 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>User Accounts</h2>
 
+<p>
+    @Html.ActionLink("New User", "New", "AccountManagement", null, new { @class = "btn btn-primary" })
+</p>
 <table id="myTable" class="table table-bordered table-hover">
     <thead>
         <tr>
