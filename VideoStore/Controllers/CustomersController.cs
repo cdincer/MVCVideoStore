@@ -90,8 +90,13 @@ namespace VideoStore.Controllers
             }
 
             var Membershiptypes = MemoryCache.Default[CacheItem1] as IEnumerable<MembershipType>;
-  
-              return View();
+
+            if (User.IsInRole(AuthorizationDetails.AdminLevel))
+            {
+                return View("Index");
+            }
+            else
+                return View("ReadOnlyIndex");
           }
   
           public ActionResult Details(int id)
