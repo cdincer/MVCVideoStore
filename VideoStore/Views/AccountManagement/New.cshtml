@@ -17,8 +17,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m =>m.IDNumber)
-        @Html.TextBoxFor(m => m.IDNumber)
+        @Html.LabelFor(m =>m.IDNumber,"ID Number")
+        @Html.TextBoxFor(m => m.IDNumber, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.IDNumber)
     </div>
 
