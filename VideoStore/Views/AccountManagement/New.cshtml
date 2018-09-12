@@ -1,0 +1,32 @@
+﻿@model  VideoStore.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm("New", "AccountManagement"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m =>m.IDNumber)
+        @Html.TextBoxFor(m => m.IDNumber)
+        @Html.ValidationMessageFor(m => m.IDNumber)
+    </div>
+
+
+
+    @Html.HiddenFor(m => m.Id)
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+@Html.ActionLink("Go Back To Movies Index ", "Index", "Movies", new { @class = "btn btn-primary" })
+@Html.AntiForgeryToken()    

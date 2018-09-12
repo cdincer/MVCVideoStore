@@ -440,6 +440,7 @@
     <Content Include="Views\Rentals\New.cshtml" />
     <Content Include="Views\Shared\_BottomNavbar.cshtml" />
     <Content Include="Views\AccountManagement\Index.cshtml" />
+    <Content Include="Views\AccountManagement\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
