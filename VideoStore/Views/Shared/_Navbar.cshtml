@@ -23,6 +23,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "Movies")"><span>Movie</span></a>
             </li>
+            @if (User.IsInRole("Admin"))
+            { 
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "AccountManagement")"><span>Account Management</span></a>
+            </li>
+            }
         </ul>
         @Html.Partial("_LoginPartial")
 
