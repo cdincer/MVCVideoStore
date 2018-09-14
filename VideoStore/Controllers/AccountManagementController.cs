@@ -8,6 +8,8 @@ using VideoStore.ViewModels;
 using VideoStore.Query;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
+
 
 namespace VideoStore.Controllers
 {
@@ -45,7 +47,21 @@ namespace VideoStore.Controllers
             return RedirectToAction("Index", "AccountManagement");
         }
 
+        public ActionResult Details(ApplicationUser Incoming)
+        {
+            ModelState.Clear(); //To clear all of the warning messages.
 
+            _context2 = new ApplicationDbContext();
+
+            var UserDetails = _context2.Users.SingleOrDefault(m => m.Id == Incoming.Id);
+
+            var AllList = _context2.Users.ToList();
+
+            if (UserDetails == null)
+                return HttpNotFound();
+
+            return View(UserDetails);
+        }
 
 
     }

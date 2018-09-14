@@ -445,6 +445,7 @@
     <Content Include="Views\AccountManagement\New.cshtml" />
     <Content Include="Views\Customers\ReadOnlyIndex.cshtml" />
     <Content Include="Views\Rentals\List.cshtml" />
+    <Content Include="Views\AccountManagement\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

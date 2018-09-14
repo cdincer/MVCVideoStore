@@ -15,7 +15,7 @@
         <tr>
             <th>Username</th>
             <th>Email</th>
-            <th>ID Number</th>
+            <th>User Role</th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +23,8 @@
         {
 
             <tr>
-                <td>@item.Email</td>
+            
+                <td><a href='/AccountManagement/Details/@item.UserId'>@item.Email </a></td>
                 <td>@item.UserName</td>
                 <td>@item.RoleName</td>
             </tr>
