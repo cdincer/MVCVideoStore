@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VideoStore.Models;
+using System.Linq;
+using System.Data.Entity;
+
+
 
 namespace VideoStore.Controllers
 {
@@ -20,7 +23,9 @@ namespace VideoStore.Controllers
         public ActionResult List()
         {
             _context = new ApplicationDbContext();
-            var Rentals = _context.Rentals.ToList();
+            var Rentals = _context.Rentals.Include(m => m.Movie)
+                                          .Include(c=>c.Customer)
+                .ToList();
 
             return View(Rentals);
         }

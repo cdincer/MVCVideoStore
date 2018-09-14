@@ -9,8 +9,11 @@
 
 @foreach (var item in Model)
 {
-@item.Customer
+    <br />
+@item.Customer.Name
+@item.Movie.Name
 @item.DateRented
 @item.DateReturned
+
 
 }
