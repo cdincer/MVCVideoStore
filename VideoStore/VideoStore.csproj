@@ -353,6 +353,7 @@
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
+    <Compile Include="ViewModels\RolesList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap--lumen.css" />

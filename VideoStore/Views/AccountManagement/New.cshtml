@@ -1,4 +1,4 @@
-﻿@model  VideoStore.Models.ApplicationUser
+﻿@model  VideoStore.ViewModels.AMRegViewModel
 
 @{
     ViewBag.Title = "New";
@@ -22,13 +22,18 @@
         @Html.ValidationMessageFor(m => m.IDNumber)
     </div>
 
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleList, "Account Role")
+        @Html.EnumDropDownListFor( x => x.RoleList, new { @class = "form-control" })       
+        @Html.ValidationMessageFor(m => m.RoleList)
+
+    </div>
+
+    @*@Html.HiddenFor(m => m.Id)*@
 
 
-    @Html.HiddenFor(m => m.Id)
-
-
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "AccountManagement")'">Save</button>
 
 }
-@Html.ActionLink("Go Back To Movies Index ", "Index", "Movies", new { @class = "btn btn-primary" })
+@Html.ActionLink("Go Back To Account Management  Index ", "Index", "AccountManagement", new { @class = "btn btn-primary" })
 @Html.AntiForgeryToken()    

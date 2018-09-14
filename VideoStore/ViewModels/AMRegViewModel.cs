@@ -12,6 +12,7 @@ namespace VideoStore.ViewModels
         public string Email { get; set; }
         public string IDNumber { get; set; }
         public string Password { get; set; }
+        public RolesList RoleList { get; set; }
 
     }
 }

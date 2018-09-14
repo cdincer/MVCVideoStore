@@ -31,16 +31,18 @@ namespace VideoStore.Controllers
 
 
         [HttpPost]
-        public ActionResult New(MovieFormViewModel ReceivedMovie)
+        public ActionResult New(AMRegViewModel ReceivedUser)
         {
-            _context2 = new ApplicationDbContext();
+            
+               _context2 = new ApplicationDbContext();
             var store = new UserStore<ApplicationUser>(_context2);
             var manager = new UserManager<ApplicationUser>(store);
-            var user = new ApplicationUser { UserName = "admin@videostore.com", Email = "admin@videostore.com", IDNumber = "1111" };
+            var user = new ApplicationUser { UserName = ReceivedUser.Email, Email = ReceivedUser.Email, IDNumber = ReceivedUser.IDNumber};
 
             manager.Create(user, "Initialpass1!");
-            manager.AddToRole(user.Id, "Admin");
-            return View();
+            manager.AddToRole(user.Id, ReceivedUser.RoleList.ToString());
+
+            return RedirectToAction("Index", "AccountManagement");
         }
 
 
