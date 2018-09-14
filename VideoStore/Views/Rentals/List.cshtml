@@ -1,0 +1,16 @@
+﻿@model IEnumerable<VideoStore.Models.Rental>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+@foreach (var item in Model)
+{
+@item.Customer
+@item.DateRented
+@item.DateReturned
+
+}
