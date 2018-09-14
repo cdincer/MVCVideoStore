@@ -5,6 +5,7 @@ using System.Web;
 
 namespace VideoStore.ViewModels
 {
+    //For use with listing users.
     public class AMLViewModel
     {
         public string Email {get; set;}

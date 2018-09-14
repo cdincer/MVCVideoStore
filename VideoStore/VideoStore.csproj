@@ -349,6 +349,7 @@
     <Compile Include="Results\AuthenticationFailureResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AMLViewModel.cs" />
+    <Compile Include="ViewModels\AMRegViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
