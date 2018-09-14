@@ -17,6 +17,7 @@ namespace VideoStore.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public AccountController()
         {
@@ -157,12 +158,21 @@ namespace VideoStore.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    _context = new ApplicationDbContext();
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    Customer NewCustomer = new Customer();
+                    NewCustomer.Id = 0;
+                    NewCustomer.MembershipTypeId = 1;
+                    NewCustomer.Name = model.Email;
+                    NewCustomer.BirthDate = new DateTime(1980, 1, 1);
+
+                    _context.Customers.Add(NewCustomer);
+                    _context.SaveChanges();
+
 
                     return RedirectToAction("Index", "Home");
                 }
