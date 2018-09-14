@@ -80,7 +80,7 @@ namespace VideoStore.Migrations
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser { UserName = "admin@videostore.com" ,Email= "admin@videostore.com",IDNumber="1111" };
 
-                manager.Create(user, "Candincer1!");
+                manager.Create(user, "TestInitialPass1!");
                 manager.AddToRole(user.Id, "Admin");
             }
 
@@ -91,7 +91,7 @@ namespace VideoStore.Migrations
                 var manager = new UserManager<ApplicationUser>(store);
                 var user2 = new ApplicationUser { UserName = "employee@videostore.com", Email = "employee@videostore.com", IDNumber = "2222" };
 
-                manager.Create(user2, "Candincer1!");
+                manager.Create(user2, "TestInitialPass1!");
                 manager.AddToRole(user2.Id, "Employee");
             }
 
