@@ -6,14 +6,45 @@
 }
 
 <h2>List</h2>
+<p>
+    @Html.ActionLink("New Rental", "New", "Rentals", null, new { @class = "btn btn-primary" })
+</p>
+<table id="myTable" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Rent Id </th>
+            <th>Date Rented</th>
+            <th>Date Returned</th>
+            <th>Movie Rented</th>
 
-@foreach (var item in Model)
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td><a href='/AccountManagement/Details/@item.Id'>@item.Id </a></td>
+                <td>@item.Customer.Name</td>
+                <td>@item.DateRented</td>
+                <td>@item.Movie.Name</td>
+
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+
+@section scripts
 {
-    <br />
-@item.Customer.Name
-@item.Movie.Name
-@item.DateRented
-@item.DateReturned
+    <script>
 
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+     } );
+
+    </script>
 
 }
