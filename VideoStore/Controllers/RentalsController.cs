@@ -30,5 +30,28 @@ namespace VideoStore.Controllers
             return View(Rentals);
         }
 
+        [HttpPost]
+        public ActionResult Save(Rental customer)
+        {
+
+            _context = new ApplicationDbContext();
+
+
+
+            var customerInDb = _context.Rentals.Include(m=>m.Customer)
+                    .Include(m=>m.Movie)
+                    .Single(c => c.Id == customer.Id);
+
+                //customerInDb.Customer.Id = customer.Customer.Id;
+                //customerInDb.Movie.Id = customer.Movie.Id;
+                //customerInDb.DateRented = customer.DateRented;
+                customerInDb.DateReturned = DateTime.Now;
+                
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
+
     }
 }

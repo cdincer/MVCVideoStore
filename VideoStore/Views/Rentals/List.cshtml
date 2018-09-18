@@ -13,9 +13,10 @@
     <thead>
         <tr>
             <th>Rent Id </th>
+            <th>Customer Name</th>
             <th>Date Rented</th>
-            <th>Date Returned</th>
             <th>Movie Rented</th>
+            <th>Return Button</th>
 
         </tr>
     </thead>
@@ -29,7 +30,7 @@
                 <td>@item.Customer.Name</td>
                 <td>@item.DateRented</td>
                 <td>@item.Movie.Name</td>
-
+                <td><button class='btn btn-primary js-delete' data-customer-id="@item.Id">Return</button></td>
             </tr>
 
         }
@@ -42,8 +43,35 @@
     <script>
 
     $(document).ready( function () {
-    $('#myTable').DataTable();
+        $('#myTable').DataTable();
+
+
+        $("#myTable").on("click", ".js-delete", function () {
+            var button = $(this);
+
+            bootbox.confirm({
+                size: "small", message: "Are you sure you want to return this movie ?", callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/Rentals/Save/" + button.attr("data-customer-id"),
+                            method: "POST",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+
+                            }
+
+                        });
+                    }
+
+                }
+            });
+
+
+        });
      } );
+
+
+
 
     </script>
 
