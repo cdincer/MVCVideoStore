@@ -55,7 +55,6 @@ namespace VideoStore.Controllers
 
             var UserDetails = _context2.Users.SingleOrDefault(m => m.Id == Incoming.Id);
 
-            var AllList = _context2.Users.ToList();
 
             if (UserDetails == null)
                 return HttpNotFound();
