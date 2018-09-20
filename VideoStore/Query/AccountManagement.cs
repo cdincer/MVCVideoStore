@@ -17,7 +17,16 @@ namespace VideoStore.Query
             return Query;
         }
 
+        public static string GetSingleUser(string Id)
+        {
+            string Query = "select utable.Email,utable.UserName,nroles.Name AS RoleName ,uroles.UserId from AspNetUserRoles";
+            Query = Query + " uroles LEFT JOIN AspNetRoles nroles ON nroles.Id = uroles.RoleId LEFT JOIN AspNetUsers utable ON utable.Id = uroles.UserId";
+            Query = Query + " where utable.Id = '" +Id;
+            Query = Query + "' ";
+            return Query;
+        }
 
-     
+
+
     }
 }

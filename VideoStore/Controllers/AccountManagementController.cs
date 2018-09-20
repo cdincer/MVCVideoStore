@@ -53,9 +53,10 @@ namespace VideoStore.Controllers
 
             _context2 = new ApplicationDbContext();
 
-            var UserDetails = _context2.Users.SingleOrDefault(m => m.Id == Incoming.Id);
+            //var UserDetails = _context2.Users.SingleOrDefault(m => m.Id == Incoming.Id);
 
-
+            var UserDetails = _context2.Database.SqlQuery<AMLViewModel>(AccountManagement.GetSingleUser(Incoming.Id));
+            var Test = UserDetails.ToList();
             if (UserDetails == null)
                 return HttpNotFound();
 

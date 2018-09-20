@@ -1,4 +1,4 @@
-﻿@model VideoStore.Models.ApplicationUser
+﻿@model  IEnumerable<VideoStore.ViewModels.AMLViewModel>
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,18 +6,22 @@
 
 <h2>Details</h2>
 
-
+@foreach (var item in Model)
+{
 <div class="form-group">
-    @Html.LabelFor(m=> m.Email)
-    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @readonly = "readonly" })
+    <label>Email</label>
+    <input class="form-control" name="StockAmount" type="text" value="@item.Email" readonly>  
 </div>
 <div class="form-group">
-    <label>
-        @Html.LabelFor(m => m.IDNumber)
-        @Html.TextBoxFor(m => m.IDNumber, new { @class = "form-control", @readonly = "readonly" })
-    </label>
+    <label>Role Name</label>
+    <input class="form-control"  name="StockAmount" type="text" value="@item.RoleName" readonly>  
 </div>
 
+<div class="form-group">
+    <label>User Id</label>
+    <input class="form-control"  name="StockAmount" type="text" value="@item.UserId" readonly>
+</div>
+}
 
 
 @Html.ActionLink("Go Back To Account Management Index ", "Index", "AccountManagement", new { @class = "btn btn-primary" })
