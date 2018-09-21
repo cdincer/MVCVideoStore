@@ -17,8 +17,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("New", "Rentals")"><span>Rent A Movie</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "Customers")"><span>Customers</span></a>
+            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+             <li class="nav-item">
+             <a class="nav-link" href="@Url.Action("Index", "Customers")"><span>Customers</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "Movies")"><span>Movies</span></a>
@@ -26,6 +28,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("List", "Rentals")"><span>Rentals</span></a>
             </li>
+            }
             @if (User.IsInRole("Admin"))
             { 
             <li class="nav-item">
