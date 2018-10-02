@@ -55,9 +55,9 @@ namespace VideoStore
             //   consumerSecret: "");
 
             //I used to have my appId and appSecret here.
-            app.UseFacebookAuthentication(
-               appId: "",
-               appSecret: "");
+            //app.UseFacebookAuthentication(
+            //   appId: "",
+            //   appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

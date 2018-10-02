@@ -46,11 +46,18 @@ namespace VideoStore.Controllers
                 //customerInDb.Movie.Id = customer.Movie.Id;
                 //customerInDb.DateRented = customer.DateRented;
                 customerInDb.DateReturned = DateTime.Now;
-                
+
+           //var rentedmovie = _context.Movies.Single(c => c.Id == customerInDb.Movie.Id);
+
+           // string StockNumber = rentedmovie.NumberAvailable.ToString();
+           // int IntStockNumber = 0;
+           // int.TryParse(StockNumber, out IntStockNumber);
+
+
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Customers");
+            return RedirectToAction("List", "Rentals");
         }
 
     }
