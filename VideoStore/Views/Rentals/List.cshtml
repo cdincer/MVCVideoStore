@@ -32,7 +32,15 @@
                 <td>@item.DateRented</td>
                 <td>@item.DateReturned</td>
                 <td>@item.Movie.Name</td>
-                <td><button class='btn btn-primary js-update' data-customer-id="@item.Id">Return</button></td>
+                @if (item.DateReturned == null)
+                {
+                    <td><button class='btn btn-primary js-update' data-customer-id="@item.Id">Return</button></td>
+                }
+                else
+                {
+                    <td></td>
+
+                }
             </tr>
 
         }
