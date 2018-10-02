@@ -51,7 +51,7 @@ namespace VideoStore.Controllers
 
             int ChangedAvaliableNumber = rentedmovie.NumberAvailable;
 
-            rentedmovie.NumberAvailable = ChangedAvaliableNumber++;
+            rentedmovie.NumberAvailable = ChangedAvaliableNumber + 1;
 
 
 
