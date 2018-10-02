@@ -330,6 +330,10 @@
     <Compile Include="Migrations\201808230942162_MovieAvaliableAddition.Designer.cs">
       <DependentUpon>201808230942162_MovieAvaliableAddition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810021635462_MovieAmountToInt.cs" />
+    <Compile Include="Migrations\201810021635462_MovieAmountToInt.Designer.cs">
+      <DependentUpon>201810021635462_MovieAmountToInt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -529,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808230942162_MovieAvaliableAddition.resx">
       <DependentUpon>201808230942162_MovieAvaliableAddition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810021635462_MovieAmountToInt.resx">
+      <DependentUpon>201810021635462_MovieAmountToInt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

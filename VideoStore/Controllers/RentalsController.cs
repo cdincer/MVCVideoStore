@@ -47,11 +47,12 @@ namespace VideoStore.Controllers
                 //customerInDb.DateRented = customer.DateRented;
                 customerInDb.DateReturned = DateTime.Now;
 
-           //var rentedmovie = _context.Movies.Single(c => c.Id == customerInDb.Movie.Id);
+            var rentedmovie = _context.Movies.Single(c => c.Id == customerInDb.Movie.Id);
 
-           // string StockNumber = rentedmovie.NumberAvailable.ToString();
-           // int IntStockNumber = 0;
-           // int.TryParse(StockNumber, out IntStockNumber);
+            int ChangedAvaliableNumber = rentedmovie.NumberAvailable;
+
+            rentedmovie.NumberAvailable = ChangedAvaliableNumber++;
+
 
 
 
