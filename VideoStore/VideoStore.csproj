@@ -381,7 +381,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bloodhound.js" />
+    <Content Include="Scripts\thirdparty\bloodhound.js" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Content\DataTables\css\mixins.scss" />
@@ -397,9 +397,9 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\toastr.js" />
-    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Scripts\thirdparty\respond.js" />
+    <Content Include="Scripts\thirdparty\toastr.js" />
+    <Content Include="Scripts\thirdparty\typeahead.bundle.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
