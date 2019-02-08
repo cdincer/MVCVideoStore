@@ -20,10 +20,10 @@ namespace VideoStore
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/bootbox.js",
+                      "~/Scripts/thirdparty/bootstrap.js",
+                      "~/Scripts/thirdparty/bootbox.js",
                       "~/Scripts/thirdparty/respond.js",
-                      "~/Scripts/DataTables/jquery.datatables.js",
+                      "~/Scripts/thirdparty/DataTables/jquery.datatables.js",
                        "~/Scripts/thirdparty/typeahead.bundle.js",
                        "~/Scripts/thirdparty/toastr.js"));
 
